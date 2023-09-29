@@ -1,0 +1,15 @@
+function fib(n){
+    
+    function fib_iter(prev, current, end, sum){
+        const total = x => x % 2 === 0 ? x + sum : sum;
+        return current>=end 
+                ? sum
+                : fib_iter(current, prev+current, end, total(current));
+    }
+    
+    
+    
+    return fib_iter(0, 1, n, 0);
+}
+
+fib(4000000);
