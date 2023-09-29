@@ -1,0 +1,42 @@
+function check_prime(n){
+    
+    function helper(i, end){
+        return i > math_sqrt(end)
+            ? true
+            : end % i === 0
+            ? false
+            : helper(i+1, end);
+    }
+    
+    return helper(2, n);
+    
+}
+
+function factor(n){
+    
+    const factors = filter(x => n % x === 0, enum_list(2, n));
+    return filter(check_prime, factors);
+        
+    
+}
+
+function largest_factor(n){
+    const lst = factor(n);
+    
+    function helper(largest, lst){
+        return is_null(lst)
+            ? largest 
+            : head(lst) > largest
+            ? helper(head(lst), tail(lst))
+            : helper(largest, tail(lst));
+    }
+    
+    return helper(0, lst);
+}
+
+
+
+largest_factor(13195);
+
+// crashes for larger number
+
