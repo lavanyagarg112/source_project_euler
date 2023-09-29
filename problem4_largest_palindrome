@@ -9,6 +9,8 @@ function check_pal(n){
     return n === reverse(0, n);
 }
 
+// have to modify
+
 function largest_pal(n,l){
     
     const end = 100;
