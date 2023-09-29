@@ -1,0 +1,37 @@
+function reverse(init, n){
+    
+    return n === 0
+        ? init
+        : reverse(10*init + n%10, (n - n%10)/10);
+}
+
+function check_pal(n){
+    return n === reverse(0, n);
+}
+
+function largest_pal(n,l){
+    
+    const end = 100;
+    
+    function helper(num1, num2, largest){
+
+        return num2 === 0
+            ? largest_pal(num1 - l, largest)
+            : num1*num2 <= l
+            ? helper(num1, num2-1, largest)
+            : check_pal(num1*num2)
+            ? helper(num1, num2-1, num1*num2)
+            : helper(num1, num2-1, largest);
+        
+        
+    }
+    
+    return n === 99
+        ? l
+        : helper(n, end, l);
+    
+    
+    
+}
+
+largest_pal(999,0);
