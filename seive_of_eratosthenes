@@ -1,0 +1,18 @@
+
+
+function seive(start, end){
+    
+    function helper(start, end, lst){
+        
+        return start === end
+            ? lst
+            : helper(start+1, end,filter(x => x===start || x%start!==0, lst));
+        
+    }
+    
+    const lst = enum_list(start, end);
+    return helper(start, end, lst);
+}
+
+seive(2, 30);
+
